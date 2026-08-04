@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "deny": [
+      "Bash(rm -rf:*)",
+      "Bash(sudo:*)",
+      "Bash(mkfs:*)",
+      "Bash(dd:*)",
+      "Bash(shutdown:*)",
+      "Bash(reboot:*)",
+      "Bash(systemctl poweroff:*)",
+      "Read(~/.ssh/**)",
+      "Read(~/.gnupg/**)",
+      "Read(.env)",
+      "Read(**/.env)"
+    ]
+  }
+}

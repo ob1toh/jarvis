@@ -1,0 +1,27 @@
+# Phase 6. Install:
+#   mkdir -p ~/.config/systemd/user
+#   cp systemd/jarvis-core.service ~/.config/systemd/user/
+#   systemctl --user daemon-reload
+#   systemctl --user enable --now jarvis-core
+# Logs: journalctl --user -u jarvis-core -f
+# Survive logout: loginctl enable-linger $USER
+
+[Unit]
+Description=jarvis-core personal assistant daemon
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=%h/Projects/jarvis
+EnvironmentFile=%h/Projects/jarvis/.env
+# mise-managed node: resolve the shim path. Adjust if `which node` differs.
+ExecStart=%h/.local/share/mise/shims/node dist/index.js
+Restart=on-failure
+RestartSec=5
+# Basic hardening. NoNewPrivileges is safe; heavier sandboxing (ProtectHome etc.)
+# would break the entire point of a machine-controlling assistant.
+NoNewPrivileges=true
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,4 @@
+{
+  "//": "JARVIS-scoped MCP servers. Phase 3 (smart home) and Phase 4 (Gmail/Calendar, IF the Phase 0 connector spike passes) land here. Never in global ~/.claude.json.",
+  "mcpServers": {}
+}

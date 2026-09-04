@@ -1,18 +1,31 @@
 {
   "name": "jarvis",
   "version": "1.0.0",
-  "description": "jarvis-core: personal AI assistant daemon on the Claude Agent SDK",
-  "main": "index.js",
+  "description": "Local-first personal AI assistant with durable memory and safe tool execution",
+  "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
     "start": "node dist/index.js",
     "dev": "tsx src/index.ts",
     "cli": "tsx src/cli.ts",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "test": "tsx scripts/smoke.test.ts",
+    "check": "npm run typecheck && npm run test && npm run build"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["ai-agent", "personal-assistant", "local-first", "linux", "claude"],
+  "author": "Obitus",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ob1toh/jarvis.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ob1toh/jarvis/issues"
+  },
+  "homepage": "https://github.com/ob1toh/jarvis#readme",
+  "engines": {
+    "node": ">=22.5"
+  },
   "dependencies": {
     "@anthropic-ai/claude-agent-sdk": "^0.3.221"
   },
